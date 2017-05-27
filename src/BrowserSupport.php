@@ -40,7 +40,7 @@ class BrowserSupport extends Uri
      * Check if the URI is a valid File URI.
      * This applies additional specific validation rules beyond the ones required by the generic URI syntax.
      *
-     * @see    Uri::isValid().
+     * @see Uri::isValid().
      *
      * @return bool
      */
@@ -56,11 +56,11 @@ class BrowserSupport extends Uri
     /**
      * User Info part is not used in browser support URIs.
      *
-     * @see    Uri::setUserInfo()
+     * @see Uri::setUserInfo()
      *
-     * @param  string $userInfo
+     * @param string $userInfo
      *
-     * @return static
+     * @return $this
      */
     public function setUserInfo($userInfo)
     {
@@ -71,11 +71,11 @@ class BrowserSupport extends Uri
     /**
      * Fragment part is not used in browser support URIs.
      *
-     * @see    Uri::setFragment()
+     * @see Uri::setFragment()
      *
-     * @param  string $fragment
+     * @param string $fragment
      *
-     * @return static
+     * @return $this
      */
     public function setFragment($fragment)
     {
@@ -86,7 +86,7 @@ class BrowserSupport extends Uri
     /**
      * Add more scheme to the lists.
      *
-     * @param  string $scheme
+     * @param string $scheme
      *
      * @return void
      */

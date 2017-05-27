@@ -29,10 +29,10 @@ trait UrlTrait
     /**
      * Generates a URL based on a route.
      *
-     * @param  string $route
+     * @param string $route
      *
-     * @return string
-     * @throws Exception\RuntimeException
+     * @return string|bool The generated URL or false on failure.
+     * @throws \Xloit\Bridge\Zend\Uri\Exception\RuntimeException
      */
     protected function generateRouteUrl($route = null)
     {
@@ -58,26 +58,25 @@ trait UrlTrait
              * the root part of the route without any other module route params
              */
             if ('/' === $route) {
-                $route = substr($routeName, 0, $position);
+                $results = substr($routeName, 0, $position);
             } else {
-                $route = substr($routeName, 0, $position) . $route;
+                $results = substr($routeName, 0, $position) . $route;
             }
         } else {
             if ('/' === $route) {
-                $route = $routeName;
+                $results = $routeName;
             } else {
-                $route = $routeName . $route;
+                $results = $routeName . $route;
             }
         }
 
-        return $route;
+        return $results;
     }
 
     /**
      * Generates a URL based on a route.
      *
      * @return \Zend\Router\RouteMatch
-     * @throws Exception\RuntimeException
      */
     abstract public function getRouteMatch();
 }
